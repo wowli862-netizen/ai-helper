@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#070b18">
+  <title>AI Orb</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="ambient"></div>
+
+  <section id="authScreen" class="screen auth-screen">
+    <div class="auth-card glass">
+      <div class="mini-orb"><span></span></div>
+      <h1>AI Orb</h1>
+      <p class="subtitle">A voice-first AI assistant.</p>
+
+      <div class="auth-tabs">
+        <button class="tab active" data-mode="login">Sign in</button>
+        <button class="tab" data-mode="register">Create account</button>
+      </div>
+
+      <form id="authForm">
+        <label>Username</label>
+        <input id="username" autocomplete="username" minlength="3" maxlength="40" required>
+        <label>Password</label>
+        <input id="password" type="password" autocomplete="current-password" minlength="6" required>
+        <button class="primary" type="submit" id="authButton">Enter the orb</button>
+      </form>
+      <div id="authError" class="error"></div>
+      <p class="privacy-note">Your account and conversation history are stored in MongoDB.</p>
+    </div>
+  </section>
+
+  <section id="appScreen" class="screen app-screen hidden">
+    <header class="topbar">
+      <div>
+        <div class="brand">AI ORB</div>
+        <div id="welcome" class="welcome"></div>
+      </div>
+      <button id="logoutButton" class="icon-button" title="Sign out">↗</button>
+    </header>
+
+    <main class="workspace">
+      <div id="status" class="status">Tap the orb to speak</div>
+
+      <button id="orbButton" class="orb-button" aria-label="Speak to AI">
+        <div class="orb">
+          <div class="gas gas-a"></div>
+          <div class="gas gas-b"></div>
+          <div class="gas gas-c"></div>
+          <div class="core"></div>
+          <div class="shine"></div>
+        </div>
+        <div class="orb-ring ring-a"></div>
+        <div class="orb-ring ring-b"></div>
+      </button>
+
+      <div id="chat" class="chat"></div>
+
+      <div class="composer glass">
+        <textarea id="textInput" rows="1" maxlength="5000" placeholder="Type a message..."></textarea>
+        <button id="sendButton" class="send-button" title="Send">➤</button>
+      </div>
+    </main>
+  </section>
+
+  <template id="messageTemplate">
+    <article class="message">
+      <div class="message-role"></div>
+      <div class="message-body"></div>
+    </article>
+  </template>
+
+  <script src="/app.js"></script>
+</body>
+</html>
